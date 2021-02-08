@@ -13,12 +13,21 @@ namespace DataAccess.Concrete.EntityFramework
     {
         public void Add(Car entity)
         {
+            
             using (CarsDatabaseContext context = new CarsDatabaseContext())
             {
                 var addedCar = context.Entry(entity);
-                addedCar.State = EntityState.Added;
-                context.SaveChanges();
+                if (entity.Description.Length >= 2 && entity.DailyPrice > 0)
+                {
+                    addedCar.State = EntityState.Added;
+                    context.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Hata. Lütfen araba isminin 2 karakterli olduguna ve günlük fiyatin 0'dan büyük olduguna emin olunuz.");
+                }
             }
+            
         }
 
         public void Delete(Car entity)
