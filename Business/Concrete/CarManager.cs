@@ -18,8 +18,17 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            _carDal.Add(car);
-            Console.WriteLine($"{car.Description} eklendi.");
+            if (car.Description.Length >= 2 && car.DailyPrice > 0) {
+                _carDal.Add(car);
+                Console.WriteLine($"{car.Description} eklendi.");
+            }
+            else if (car.Description.Length < 2)
+            {
+                Console.WriteLine("Hata. Araba ismi minimum 2 karakter olmalidir. ");
+            } else if (car.DailyPrice == 0)
+            {
+                Console.WriteLine("Hata. Araba günlük fiyati 0'dan büyük olmalidir.");
+            }
         }
 
         public void Delete(Car car)
