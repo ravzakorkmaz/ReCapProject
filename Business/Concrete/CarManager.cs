@@ -18,11 +18,11 @@ namespace Business.Concrete
 
         public void Add(Car car)
         {
-            if (car.Description.Length >= 2 && car.DailyPrice > 0) {
+            if (car.CarName.Length >= 2 && car.DailyPrice > 0) {
                 _carDal.Add(car);
-                Console.WriteLine($"{car.Description} eklendi.");
+                Console.WriteLine($"{car.CarName} eklendi.");
             }
-            else if (car.Description.Length < 2)
+            else if (car.CarName.Length < 2)
             {
                 Console.WriteLine("Hata. Araba ismi minimum 2 karakter olmalidir. ");
             } else if (car.DailyPrice == 0)
@@ -34,7 +34,7 @@ namespace Business.Concrete
         public void Delete(Car car)
         {
             _carDal.Delete(car);
-            Console.WriteLine($"{car.Description} silindi.");
+            Console.WriteLine($"{car.CarName} silindi.");
         }
 
         public List<Car> GetAll()
@@ -55,7 +55,7 @@ namespace Business.Concrete
         public void Update(Car car)
         {
             _carDal.Update(car);
-            Console.WriteLine($"{car.Description} güncellendi.");
+            Console.WriteLine($"{car.CarName} güncellendi.");
         }
     }
 }
