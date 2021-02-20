@@ -45,17 +45,17 @@ namespace Business.Concrete
             return new SuccessDataResult<Rental>(_rentalDal.Get(r => r.RentalId == rentalId));
         }
 
-        public IDataResult<List<Rental>> GetAllByRentDate(DateTime rentDate)
+        public IDataResult<List<Rental>> GetRentalsByRentDate(DateTime rentDate)
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.RentDate == rentDate));
         }
 
-        public IDataResult<List<Rental>> GetAllRentalByCarId(int carId)
+        public IDataResult<List<Rental>> GetRentalsByCarId(int carId)
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CarId == carId));
         }
 
-        public IDataResult<List<Rental>> GetAllRentalByCustomerId(int customerId)
+        public IDataResult<List<Rental>> GetRentalsByCustomerId(int customerId)
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.CustomerId == customerId));
         }

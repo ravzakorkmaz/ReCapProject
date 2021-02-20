@@ -10,9 +10,9 @@ namespace Business.Abstract
     {
         IDataResult<List<Rental>> GetAll();
         IDataResult<Rental> GetByRentalId(int rentalId);
-        IDataResult<List<Rental>> GetAllRentalByCarId(int carId);
-        IDataResult<List<Rental>> GetAllRentalByCustomerId(int customerId);
-        IDataResult<List<Rental>> GetAllByRentDate(DateTime rentDate); //?
+        IDataResult<List<Rental>> GetRentalsByCarId(int carId);
+        IDataResult<List<Rental>> GetRentalsByCustomerId(int customerId);
+        IDataResult<List<Rental>> GetRentalsByRentDate(DateTime rentDate); //?
 
         IResult Add(Rental rental);
         IResult Update(Rental rental);
